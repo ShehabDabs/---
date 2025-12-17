@@ -1,0 +1,1364 @@
+/* إعادة تعيين الأساسيات */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    line-height: 1.6;
+    color: #212121;
+    background-color: #FAFAFA;
+    direction: rtl;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* شريط التنقل */
+.navbar {
+    background: linear-gradient(135deg, #2E7D32, #1565C0);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heart-icon {
+    width: 20px;
+    height: 20px;
+    background: #FF6F00;
+    transform: rotate(45deg);
+    position: relative;
+    animation: heartbeat 2s infinite;
+}
+
+.heart-icon::before,
+.heart-icon::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: #FF6F00;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart-icon::before {
+    top: -10px;
+    right: 0;
+}
+
+.heart-icon::after {
+    top: 0;
+    right: -10px;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: rotate(45deg) scale(1); }
+    50% { transform: rotate(45deg) scale(1.1); }
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    padding: 10px 15px;
+    border-radius: 25px;
+    position: relative;
+}
+
+.nav-link:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* القسم الرئيسي */
+.hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #2E7D32 0%, #1565C0 50%, #FF6F00 100%);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 70px;
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.hero-text {
+    color: white;
+    z-index: 2;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    animation: slideInRight 1s ease-out;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #FFE0B2;
+    animation: slideInRight 1s ease-out 0.2s both;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    line-height: 1.8;
+    animation: slideInRight 1s ease-out 0.4s both;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    animation: slideInRight 1s ease-out 0.6s both;
+}
+
+.btn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: #FF6F00;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #F57C00;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255,111,0,0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: #2E7D32;
+    transform: translateY(-3px);
+}
+
+/* الرسوم المتحركة للبطل */
+.hero-animations {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    animation: fadeIn 1s ease-out 0.8s both;
+}
+
+/* أيقونة الكرسي المتحرك */
+.wheelchair-icon {
+    width: 120px;
+    height: 120px;
+    position: relative;
+    animation: bounce 3s infinite;
+}
+
+.wheel {
+    position: absolute;
+    border: 4px solid white;
+    border-radius: 50%;
+    background: transparent;
+}
+
+.wheel-1 {
+    width: 40px;
+    height: 40px;
+    bottom: 0;
+    right: 10px;
+    animation: spin 2s linear infinite;
+}
+
+.wheel-2 {
+    width: 60px;
+    height: 60px;
+    bottom: 0;
+    right: 50px;
+    animation: spin 2s linear infinite reverse;
+}
+
+.seat {
+    position: absolute;
+    width: 50px;
+    height: 8px;
+    background: white;
+    bottom: 30px;
+    right: 35px;
+    border-radius: 4px;
+}
+
+.backrest {
+    position: absolute;
+    width: 8px;
+    height: 40px;
+    background: white;
+    bottom: 30px;
+    right: 35px;
+    border-radius: 4px;
+}
+
+.armrest {
+    position: absolute;
+    width: 25px;
+    height: 4px;
+    background: white;
+    border-radius: 2px;
+}
+
+.armrest-1 {
+    bottom: 45px;
+    right: 35px;
+}
+
+.armrest-2 {
+    bottom: 45px;
+    right: 60px;
+}
+
+/* عصا المشي */
+.walking-stick {
+    width: 80px;
+    height: 120px;
+    position: relative;
+    animation: sway 2s ease-in-out infinite;
+}
+
+.stick {
+    position: absolute;
+    width: 4px;
+    height: 100px;
+    background: white;
+    right: 50%;
+    transform: translateX(50%);
+    border-radius: 2px;
+}
+
+.handle {
+    position: absolute;
+    width: 20px;
+    height: 4px;
+    background: white;
+    top: 0;
+    right: 50%;
+    transform: translateX(50%);
+    border-radius: 2px;
+}
+
+/* لغة الإشارة */
+.sign-language {
+    width: 80px;
+    height: 100px;
+    position: relative;
+    animation: wave 2s ease-in-out infinite;
+}
+
+.hand {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.palm {
+    position: absolute;
+    width: 30px;
+    height: 40px;
+    background: white;
+    border-radius: 15px;
+    bottom: 0;
+    right: 50%;
+    transform: translateX(50%);
+}
+
+.finger {
+    position: absolute;
+    width: 6px;
+    background: white;
+    border-radius: 3px;
+}
+
+.finger-1 {
+    height: 25px;
+    top: 10px;
+    right: 25px;
+}
+
+.finger-2 {
+    height: 30px;
+    top: 5px;
+    right: 35px;
+}
+
+.finger-3 {
+    height: 28px;
+    top: 7px;
+    right: 45px;
+}
+
+.finger-4 {
+    height: 22px;
+    top: 12px;
+    right: 55px;
+}
+
+.thumb {
+    position: absolute;
+    width: 6px;
+    height: 20px;
+    background: white;
+    border-radius: 3px;
+    bottom: 25px;
+    right: 15px;
+    transform: rotate(45deg);
+}
+
+/* أيدي الدعم */
+.support-hands {
+    width: 100px;
+    height: 80px;
+    position: relative;
+    animation: embrace 3s ease-in-out infinite;
+}
+
+.hand-1,
+.hand-2 {
+    position: absolute;
+    width: 30px;
+    height: 40px;
+    background: white;
+    border-radius: 15px 15px 5px 5px;
+}
+
+.hand-1 {
+    right: 0;
+    transform: rotate(-20deg);
+}
+
+.hand-2 {
+    left: 0;
+    transform: rotate(20deg);
+}
+
+.heart-between {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: #FF6F00;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.heart-between::before,
+.heart-between::after {
+    content: '';
+    width: 15px;
+    height: 15px;
+    background: #FF6F00;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart-between::before {
+    top: -7.5px;
+    right: 0;
+}
+
+.heart-between::after {
+    top: 0;
+    right: -7.5px;
+}
+
+/* العناصر العائمة */
+.floating-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.floating-element {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    animation: float var(--duration) ease-in-out infinite;
+    animation-delay: var(--delay);
+}
+
+.floating-element:nth-child(1) {
+    top: 20%;
+    left: 10%;
+}
+
+.floating-element:nth-child(2) {
+    top: 60%;
+    left: 80%;
+}
+
+.floating-element:nth-child(3) {
+    top: 40%;
+    left: 20%;
+}
+
+/* الأقسام العامة */
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2E7D32;
+    margin-bottom: 20px;
+}
+
+.title-underline {
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #2E7D32, #FF6F00);
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+/* قسم عن المبادرة */
+.about {
+    padding: 100px 0;
+    background: white;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.about-card {
+    background: #FAFAFA;
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.about-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(46,125,50,0.1);
+    border-color: #2E7D32;
+}
+
+.card-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.vision-icon {
+    background: linear-gradient(135deg, #2E7D32, #4CAF50);
+}
+
+.mission-icon {
+    background: linear-gradient(135deg, #1565C0, #2196F3);
+}
+
+.values-icon {
+    background: linear-gradient(135deg, #FF6F00, #FF9800);
+}
+
+.card-icon::before {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: white;
+    border-radius: 50%;
+}
+
+.vision-icon::after {
+    content: '👁️';
+    position: absolute;
+    font-size: 20px;
+}
+
+.mission-icon::after {
+    content: '🎯';
+    position: absolute;
+    font-size: 20px;
+}
+
+.values-icon::after {
+    content: '💎';
+    position: absolute;
+    font-size: 20px;
+}
+
+.about-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2E7D32;
+    margin-bottom: 15px;
+}
+
+.about-card p {
+    line-height: 1.8;
+    color: #666;
+}
+
+/* قسم الخدمات */
+.services {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(46,125,50,0.15);
+}
+
+.service-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-size: 2rem;
+}
+
+.education-icon {
+    background: linear-gradient(135deg, #2E7D32, #4CAF50);
+}
+
+.accessibility-icon {
+    background: linear-gradient(135deg, #1565C0, #2196F3);
+}
+
+.counseling-icon {
+    background: linear-gradient(135deg, #FF6F00, #FF9800);
+}
+
+.training-icon {
+    background: linear-gradient(135deg, #7B1FA2, #9C27B0);
+}
+
+.social-icon {
+    background: linear-gradient(135deg, #D32F2F, #F44336);
+}
+
+.technology-icon {
+    background: linear-gradient(135deg, #388E3C, #4CAF50);
+}
+
+.service-icon::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 10px;
+}
+
+.education-icon::after {
+    content: '📚';
+    position: absolute;
+    font-size: 24px;
+}
+
+.accessibility-icon::after {
+    content: '♿';
+    position: absolute;
+    font-size: 24px;
+}
+
+.counseling-icon::after {
+    content: '🤝';
+    position: absolute;
+    font-size: 24px;
+}
+
+.training-icon::after {
+    content: '🎓';
+    position: absolute;
+    font-size: 24px;
+}
+
+.social-icon::after {
+    content: '👥';
+    position: absolute;
+    font-size: 24px;
+}
+
+.technology-icon::after {
+    content: '💻';
+    position: absolute;
+    font-size: 24px;
+}
+
+.service-card h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #2E7D32;
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    line-height: 1.8;
+    color: #666;
+}
+
+/* قسم الأنشطة */
+.activities {
+    padding: 100px 0;
+    background: white;
+}
+
+.activities-content {
+    display: grid;
+    gap: 40px;
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 30px;
+    background: #FAFAFA;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.activity-item:hover {
+    transform: translateX(-10px);
+    box-shadow: 0 15px 35px rgba(46,125,50,0.1);
+}
+
+.activity-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.workshop-icon {
+    background: linear-gradient(135deg, #2E7D32, #4CAF50);
+}
+
+.event-icon {
+    background: linear-gradient(135deg, #1565C0, #2196F3);
+}
+
+.sports-icon {
+    background: linear-gradient(135deg, #FF6F00, #FF9800);
+}
+
+.cultural-icon {
+    background: linear-gradient(135deg, #7B1FA2, #9C27B0);
+}
+
+.activity-icon::before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: white;
+    border-radius: 10px;
+}
+
+.workshop-icon::after {
+    content: '🔧';
+    position: absolute;
+    font-size: 30px;
+}
+
+.event-icon::after {
+    content: '📢';
+    position: absolute;
+    font-size: 30px;
+}
+
+.sports-icon::after {
+    content: '⚽';
+    position: absolute;
+    font-size: 30px;
+}
+
+.cultural-icon::after {
+    content: '🎨';
+    position: absolute;
+    font-size: 30px;
+}
+
+.activity-text h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2E7D32;
+    margin-bottom: 15px;
+}
+
+.activity-text p {
+    line-height: 1.8;
+    color: #666;
+}
+
+/* قسم التطوع */
+.volunteer {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #2E7D32, #1565C0);
+    color: white;
+}
+
+.volunteer-content {
+    text-align: center;
+}
+
+.volunteer-text h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.volunteer-text > p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 50px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.volunteer-ways {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.volunteer-way {
+    background: rgba(255,255,255,0.1);
+    padding: 30px 20px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.volunteer-way:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-5px);
+}
+
+.way-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.2);
+    font-size: 1.5rem;
+    position: relative;
+}
+
+.volunteer-support-icon::after {
+    content: '🤲';
+    position: absolute;
+}
+
+.mentor-icon::after {
+    content: '👨‍🏫';
+    position: absolute;
+}
+
+.community-icon::after {
+    content: '📣';
+    position: absolute;
+}
+
+.volunteer-way h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.volunteer-way p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.volunteer-form {
+    background: rgba(255,255,255,0.1);
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.volunteer-form h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.contact-form {
+    display: grid;
+    gap: 20px;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: 'Cairo', sans-serif;
+    background: rgba(255,255,255,0.9);
+    color: #333;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    outline: none;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(255,111,0,0.3);
+}
+
+/* قسم التواصل */
+.contact {
+    padding: 100px 0;
+    background: white;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+}
+
+.contact-info {
+    display: grid;
+    gap: 30px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.contact-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.location-icon {
+    background: linear-gradient(135deg, #2E7D32, #4CAF50);
+}
+
+.phone-icon {
+    background: linear-gradient(135deg, #1565C0, #2196F3);
+}
+
+.email-icon {
+    background: linear-gradient(135deg, #FF6F00, #FF9800);
+}
+
+.time-icon {
+    background: linear-gradient(135deg, #7B1FA2, #9C27B0);
+}
+
+.contact-icon::before {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: white;
+    border-radius: 8px;
+}
+
+.location-icon::after {
+    content: '📍';
+    position: absolute;
+    font-size: 20px;
+}
+
+.phone-icon::after {
+    content: '📞';
+    position: absolute;
+    font-size: 20px;
+}
+
+.email-icon::after {
+    content: '✉️';
+    position: absolute;
+    font-size: 20px;
+}
+
+.time-icon::after {
+    content: '🕐';
+    position: absolute;
+    font-size: 20px;
+}
+
+.contact-text h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #2E7D32;
+    margin-bottom: 10px;
+}
+
+.contact-text p {
+    line-height: 1.6;
+    color: #666;
+}
+
+.contact-form-container {
+    background: #FAFAFA;
+    padding: 40px;
+    border-radius: 20px;
+}
+
+.contact-form-container h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2E7D32;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* التذييل */
+.footer {
+    background: linear-gradient(135deg, #212121, #424242);
+    color: white;
+    padding: 60px 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-section h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #FF6F00;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #FF6F00;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #555;
+    color: #ccc;
+}
+
+/* الرسوم المتحركة */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes sway {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(10deg);
+    }
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-15deg);
+    }
+    75% {
+        transform: rotate(15deg);
+    }
+}
+
+@keyframes embrace {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+        opacity: 1;
+    }
+}
+
+/* التصميم المتجاوب */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        right: -100%;
+        top: 70px;
+        flex-direction: column;
+        background: linear-gradient(135deg, #2E7D32, #1565C0);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+        padding: 20px 0;
+    }
+    
+    .nav-menu.active {
+        right: 0;
+    }
+    
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-animations {
+        gap: 20px;
+    }
+    
+    .wheelchair-icon,
+    .walking-stick,
+    .sign-language,
+    .support-hands {
+        transform: scale(0.8);
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .activity-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .volunteer-ways {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    .hero-content,
+    .about,
+    .services,
+    .activities,
+    .volunteer,
+    .contact {
+        padding: 60px 0;
+    }
+    
+    .about-card,
+    .service-card {
+        padding: 30px 20px;
+    }
+    
+    .volunteer-form,
+    .contact-form-container {
+        padding: 30px 20px;
+    }
+}
+
+/* تحسينات إضافية للتفاعل */
+.nav-link.active {
+    background: rgba(255,255,255,0.2);
+}
+
+.section {
+    scroll-margin-top: 70px;
+}
+
+/* تأثيرات التمرير */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.scroll-animate.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* تحسين أداء الرسوم المتحركة */
+.hero-animations * {
+    will-change: transform;
+}
+
+.floating-element {
+    will-change: transform, opacity;
+}
+
+/* تخصيص شريط التمرير */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #2E7D32, #1565C0);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #1B5E20, #0D47A1);
+}
+
+/* دعم المتصفحات القديمة */
+.hero {
+    background: #2E7D32; /* fallback */
+}
+
+.navbar {
+    background: #2E7D32; /* fallback */
+}
+
+/* تحسينات الطباعة */
+@media print {
+    .navbar,
+    .hero-animations,
+    .floating-elements,
+    .btn {
+        display: none;
+    }
+    
+    body {
+        color: black;
+        background: white;
+    }
+    
+    .hero {
+        background: white;
+        color: black;
+    }
+}
